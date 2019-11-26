@@ -10,11 +10,12 @@ const userSchema = new Schema(
       unique: true,
       trim: true,
       minlength: 3
-    }
+    },
+    exercises: [{ type: Schema.Types.ObjectId, ref: "Exercises" }]
   },
   { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema, "users");
 
 module.exports = User;
